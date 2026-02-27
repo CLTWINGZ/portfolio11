@@ -17,14 +17,13 @@ import {
   Wrench,
   BadgeCheck,
   FolderGit2,
-  UserRound,
 } from "lucide-react";
 
 type Theme = "dark" | "light";
 
-function Section({ title, icon, children }: { title: string; icon?: ReactNode; children: ReactNode }) {
+function Section({ id, title, icon, children }: { id?: string; title: string; icon?: ReactNode; children: ReactNode }) {
   return (
-    <section className="card">
+    <section id={id} className="card">
       <div className="sectionHead">
         <h2 className="h2" style={{ display: "flex", alignItems: "center", gap: 10 }}>
           {icon}
@@ -117,7 +116,7 @@ export default function Page() {
       <div className="container">
         <header className="hero card">
           <div className="heroLeft">
-            <p className="kicker">Portfolio / CV</p>
+            <p className="kicker">Portfolio </p>
 
             <div className="heroTopRow">
               <h1 className="title">
@@ -215,43 +214,73 @@ export default function Page() {
               </div>
             </div>
 
-            <div className="miniCard">
-              <p className="miniTitle">Profile</p>
-              <p className="miniText">{d.profile}</p>
-            </div>
+
           </div>
         </header>
 
         <main className="grid2">
-          <Section title="About" icon={<UserRound size={18} />}>
-            <p className="body">{d.profile}</p>
-          </Section>
-
-          <Section title="Skills Overview" icon={<Wrench size={18} />}>
+          <Section id="skills" title="Skills Overview" icon={<Wrench size={18} />}>
             <p className="muted body" style={{ marginTop: 6 }}>
-              Core strengths across frontend, backend, databases, and DevOps foundations.
+              Core strengths across frontend, backend, databases, DevOps, networking, and cloud technologies.
             </p>
-            <div className="chips" style={{ marginTop: 12 }}>
+
+            <div style={{ marginTop: 16, display: "grid", gap: 16 }}>
               {[
-                "React",
-                "TypeScript",
-                "Node.js",
-                "Express.js",
-                "PHP",
-                "MySQL",
-                "MongoDB",
-                "GitHub Actions",
-                "Docker",
-                "Kubernetes",
-              ].map((s) => (
-                <span key={s} className="chip">
-                  {s}
-                </span>
+                {
+                  title: "Programming",
+                  items: ["Java", "C#", "C", "C++", "Python", "PHP", "Dart", "JavaScript", "TypeScript", "Scala"],
+                },
+                {
+                  title: "Databases",
+                  items: ["SQL", "MySQL", "PostgreSQL", "MongoDB", "SQL Server", "Firebase"],
+                },
+                {
+                  title: "Web & Mobile",
+                  items: ["HTML", "CSS", "JavaScript", "TypeScript", "jQuery", "React.js", "Bootstrap", "Material UI", "Tailwind CSS", "Flutter", "Dart", "Spring Boot"],
+                },
+                {
+                  title: "Backend & Tools",
+                  items: ["Node.js", "Express.js", "PHP", "AJAX", "Flask", "Postman", "Maven", "Jupyter Notebook", "NumPy", "Pandas"],
+                },
+                {
+                  title: "Platforms & CMS",
+                  items: ["Joomla", "SharePoint", "WordPress"],
+                },
+                {
+                  title: "DevOps",
+                  items: ["Git", "GitHub", "CI/CD", "Linux", "Jenkins", "Docker", "Kubernetes", "Cloud Fundamentals"],
+                },
+                {
+                  title: "Networking & Systems",
+                  items: ["LAN/WAN", "Firewalls", "Servers", "Cisco Packet Tracer", "Active Directory", "Wireshark"],
+                },
+                {
+                  title: "Cloud & AI",
+                  items: ["AI Integration", "Google Cloud"],
+                },
+                {
+                  title: "Developer Tools",
+                  items: ["VS Code", "IntelliJ IDEA", "REST APIs"],
+                },
+              ].map((group) => (
+                <div key={group.title}>
+                  <p className="hint" style={{ marginBottom: 8 }}>
+                    {group.title}
+                  </p>
+
+                  <div className="chips">
+                    {group.items.map((item) => (
+                      <span key={item} className="chip">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
           </Section>
 
-          <Section title="Education" icon={<GraduationCap size={18} />}>
+          <Section id="education" title="Education" icon={<GraduationCap size={18} />}>
             <div className="timeline">
               {d.education.map((e) => (
                 <div key={`${e.institute}-${e.period}`} className="tlItem">
@@ -277,7 +306,7 @@ export default function Page() {
             </div>
           </Section>
 
-          <Section title="Experience" icon={<Briefcase size={18} />}>
+          <Section id="experience" title="Experience" icon={<Briefcase size={18} />}>
             <div className="timeline">
               {d.experience.map((x) => (
                 <div key={`${x.company}-${x.period}`} className="tlItem">
@@ -319,7 +348,7 @@ export default function Page() {
             </div>
           </Section>
 
-          <Section title="Projects" icon={<FolderGit2 size={18} />}>
+          <Section id="projects" title="Projects" icon={<FolderGit2 size={18} />}>
             <div className="projects" style={{ marginTop: 6 }}>
               {d.projects.map((p) => (
                 <article key={p.title} className="project">
@@ -328,6 +357,15 @@ export default function Page() {
                     <span className="year">{p.status ?? "Completed"}</span>
                   </div>
                   <p className="body muted">{p.description}</p>
+                  {p.previewLink ? (
+                    <button
+                      className="projectPreviewBtn"
+                      type="button"
+                      onClick={() => window.open(p.previewLink, "_blank", "noopener,noreferrer")}
+                    >
+                      Preview
+                    </button>
+                  ) : null}
                   <div className="chips small">
                     {p.stack.map((t) => (
                       <span key={t} className="chip">
@@ -340,7 +378,7 @@ export default function Page() {
             </div>
           </Section>
 
-          <Section title="Licenses & Certifications" icon={<BadgeCheck size={18} />}>
+          <Section id="certifications" title="Licenses & Certifications" icon={<BadgeCheck size={18} />}>
             <div className="certGrid">
               {d.certifications.map((c) => (
                 <div key={`${c.title}-${c.date}`} className="cert">
@@ -354,7 +392,6 @@ export default function Page() {
             </div>
           </Section>
         </main>
-
         <footer className="footer">
           <p className="muted">
             Built with <b>Next.js + React + TypeScript</b> | Deployed with <b>GitHub Actions</b>.

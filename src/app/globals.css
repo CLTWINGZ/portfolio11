@@ -75,6 +75,10 @@ body {
   min-height: 100%;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: var(--font-body);
@@ -446,7 +450,8 @@ body {
 
 .hero {
   display: grid;
-  grid-template-columns: 1.22fr 0.78fr;
+  grid-template-columns: minmax(0, 1fr) minmax(250px, 300px);
+  align-items: start;
   gap: 1rem;
   padding: 1.55rem;
   animation: rise-in 0.75s cubic-bezier(0.2, 0.85, 0.2, 1) both;
@@ -473,11 +478,14 @@ body {
 .heroLeft {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .heroRight {
   display: flex;
   flex-direction: column;
+  width: min(300px, 100%);
+  justify-self: end;
   gap: 0.88rem;
 }
 
@@ -975,6 +983,7 @@ body {
 
 .grid2 > .card {
   padding: 1.15rem;
+  scroll-margin-top: 5rem;
   animation: rise-in 0.75s cubic-bezier(0.2, 0.85, 0.2, 1) both;
 }
 
@@ -1004,6 +1013,10 @@ body {
 
 .grid2 > .card:nth-child(6) {
   animation-delay: 0.48s;
+}
+
+.grid2 > .card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
 }
 
 .chips {
@@ -1202,6 +1215,36 @@ body {
   justify-content: space-between;
   gap: 0.54rem;
   margin-bottom: 0.44rem;
+}
+
+.projectPreviewBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.62rem;
+  margin-bottom: 0.68rem;
+  padding: 0.34rem 0.62rem;
+  border-radius: 999px;
+  border: 1px solid var(--line-soft);
+  color: var(--text-1);
+  text-decoration: none;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  background: color-mix(in srgb, var(--surface-3) 84%, transparent);
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.projectPreviewBtn:hover {
+  transform: translateY(-1px);
+  border-color: var(--line-strong);
+  box-shadow: 0 8px 16px rgba(2, 10, 23, 0.24);
+}
+
+.projectPreviewBtn:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--accent-b) 70%, white 30%);
+  outline-offset: 2px;
 }
 
 .certGrid {
@@ -1437,6 +1480,10 @@ button:focus-visible {
     filter: blur(34px);
   }
 
+  .hero {
+    grid-template-columns: minmax(0, 1fr) minmax(230px, 280px);
+  }
+
   .contactStrip {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1450,6 +1497,11 @@ button:focus-visible {
 @media (max-width: 900px) {
   .hero {
     grid-template-columns: 1fr;
+  }
+
+  .heroRight {
+    width: 100%;
+    justify-self: stretch;
   }
 
   .profilePhotoCard {

@@ -18,6 +18,7 @@ export type Project = {
   title: string;
   status?: string;
   description: string;
+  previewLink?: string;
   stack: string[];
 };
 
@@ -123,7 +124,7 @@ const data: PortfolioData = {
         "Performed infrastructure security/maintenance: patching, VPN, directory services, monitoring.",
         "Troubleshot hardware/software/network issues and optimized system performance.",
       ],
-      techStack: ["PHP", "MySQL", "JavaScript", "AJAX", "HTML", "CSS", "Bootstrap", "Linux", "Networking"],
+      techStack: ["PHP", "MySQL", "jQuery", "JavaScript", "AJAX", "HTML", "CSS", "Bootstrap", "Linux", "Networking" ,"LAN/WAN", "Firewalls", "Servers", "Cisco Packet Tracer", "Active Directory","Microsoft 365"],
     },
   ],
 
@@ -132,30 +133,35 @@ const data: PortfolioData = {
       title: "Aviation-Themed Hotel Management System (AI-Integrated)",
       description:
         "Full-stack hotel management system with automated room management, secure authentication, AI chatbot support, automated invoicing & email notifications.",
+      previewLink: "https://drive.google.com/file/d/1KmgMRHmz_VzqAZY7hFW3-pEE7W7cl7v1/view?usp=sharing",
       stack: ["HTML", "CSS", "Bootstrap", "JavaScript", "jQuery", "AJAX", "PHP", "MySQL", "Google API"],
     },
     {
       title: "Inventory Management System (CAASL IT Unit)",
       description:
         "Asset registration, monitoring, and automated reporting dashboards for IT inventory management.",
+        previewLink: "https://www.linkedin.com/posts/chethana-jathunarachchi-2ba45b281_php-javascript-bootstrap-activity-7248674565084590081-yGqS?utm_source=share&utm_medium=member_desktop&rcm=ACoAAESWoO4BLTUAIjH4mZcsoTEXjUn2XvibmZY",
       stack: ["HTML", "CSS", "Bootstrap", "JavaScript", "jQuery", "AJAX", "PHP", "MySQL"],
     },
     {
       title: "Small Business Inventory Management System",
       description:
         "Full-stack inventory web app with JWT auth, CRUD, real-time stock updates, responsive UI and dashboards.",
+        
       stack: ["React", "Recharts", "Node.js", "Express.js", "MongoDB", "Axios", "REST APIs", "JWT"],
     },
     {
       title: "Weather Analytics Application",
       description:
         "Real-time weather data processing with Comfort Index scoring, server-side caching, responsive UI, Auth0 auth.",
+        previewLink: "https://github.com/CLTWINGZ/weather_app.git",
       stack: ["React", "Node.js", "Express.js", "REST APIs", "Auth0"],
     },
     {
       title: "AI-Based Web Application (IBM Watson)",
       description:
         "AI-driven web app using IBM Watson libraries with Flask REST APIs and server-side processing.",
+        previewLink: "https://drive.google.com/file/d/1KmgMRHmz_VzqAZY7hFW3-pEE7W7cl7v1/view?usp=sharing",
       stack: ["Flask", "IBM Watson", "REST APIs"],
     },
     {
@@ -173,12 +179,20 @@ const data: PortfolioData = {
     { title: "Practical Cisco Networking Labs in Cisco Packet Tracer", issuer: "Udemy", date: "Dec 2024" },
     { title: "Web Development with Java Spring Framework", issuer: "Peter the Great St. Petersburg Polytechnic University", date: "Nov 2025" },
     { title: "Supervised Machine Learning: Regression and Classification", issuer: "DeepLearning.AI", date: "Nov 2025" },
-    { title: "Hands-On Introduction to Linux Commands and Shell Scripting", issuer: "IBM", date: "Nov–Dec 2025" },
+    { title: "Hands-On Introduction to Linux Commands and Shell Scripting", issuer: "IBM", date: "Nov 2025" },
+    { title: "Introduction to Software Engineering", issuer: "IBM", date: "Nov 2025" },
+    { title: "Developing Front-End Apps with React", issuer: "IBM", date: "Dec 2025" },
+    { title: "Developing Back-End Apps with Node.js and Express", issuer: "IBM", date: "Dec 2025" },
+    { title: "Getting Started with Git and GitHub", issuer: "IBM", date: "Dec 2025" },
     { title: "Introduction to Cloud Computing", issuer: "IBM", date: "Jan 2026" },
+    { title: "Python for Data Science, AI & Development", issuer: "IBM", date: "Jan 2026" },
+    { title: "Developing AI Applications with Python and Flask", issuer: "IBM", date: "Jan 2026" },
+    { title: "Foundations of Coding: Full-Stack", issuer: "Microsoft", date: "Jan 2026" },
     { title: "DevOps Prerequisite Course", issuer: "KodeKloud", date: "Jan 2026" },
     { title: "Jenkins for Beginners", issuer: "KodeKloud", date: "Jan 2026" },
     { title: "Docker Basics for DevOps", issuer: "KodeKloud", date: "Jan 2026" },
     { title: "Kubernetes Basics for DevOps", issuer: "KodeKloud", date: "Jan 2026" },
+    
   ],
 
   skills: {
