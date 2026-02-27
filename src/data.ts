@@ -161,7 +161,7 @@ const data: PortfolioData = {
       title: "AI-Based Web Application (IBM Watson)",
       description:
         "AI-driven web app using IBM Watson libraries with Flask REST APIs and server-side processing.",
-        previewLink: "https://drive.google.com/file/d/1KmgMRHmz_VzqAZY7hFW3-pEE7W7cl7v1/view?usp=sharing",
+        
       stack: ["Flask", "IBM Watson", "REST APIs"],
     },
     {
