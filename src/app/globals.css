@@ -805,6 +805,8 @@ body {
 .profilePhotoCard {
   position: relative;
   overflow: hidden;
+  width: min(240px, 100%);
+  margin-inline: auto;
   border: 1px solid var(--line-soft);
   border-radius: var(--radius-md);
   background: rgba(22, 36, 56, 0.62);

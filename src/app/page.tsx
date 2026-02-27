@@ -192,8 +192,8 @@ export default function Page() {
                   className="profilePhoto"
                   src={d.profilePhoto}
                   alt={`${d.name} profile photo`}
-                  width={360}
-                  height={420}
+                  width={240}
+                  height={300}
                   priority
                   onError={() => setProfileImageFailed(true)}
                 />
