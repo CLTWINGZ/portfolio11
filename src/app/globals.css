@@ -806,7 +806,8 @@ body {
   position: relative;
   overflow: hidden;
   width: min(240px, 100%);
-  margin-inline: auto;
+  margin-inline-start: auto;
+  margin-inline-end: 0;
   border: 1px solid var(--line-soft);
   border-radius: var(--radius-md);
   background: rgba(22, 36, 56, 0.62);
@@ -1436,10 +1437,6 @@ button:focus-visible {
     filter: blur(34px);
   }
 
-  .hero {
-    grid-template-columns: 1fr;
-  }
-
   .contactStrip {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1447,6 +1444,16 @@ button:focus-visible {
   .projects,
   .certGrid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .profilePhotoCard {
+    margin-inline: auto;
   }
 }
 
