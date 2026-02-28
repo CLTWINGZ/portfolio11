@@ -147,6 +147,7 @@ const data: PortfolioData = {
       title: "Small Business Inventory Management System",
       description:
         "Full-stack inventory web app with JWT auth, CRUD, real-time stock updates, responsive UI and dashboards.",
+         previewLink: "https://small-bussiness-inventory1.vercel.app/",
         
       stack: ["React", "Recharts", "Node.js", "Express.js", "MongoDB", "Axios", "REST APIs", "JWT"],
     },
